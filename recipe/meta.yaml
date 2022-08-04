@@ -17,6 +17,8 @@ requirements:
   host:
     - python
     - pip
+    - setuptools >=39.2.0
+    - wheel
   run:
     - python
 
@@ -36,6 +38,7 @@ about:
   home: https://github.com/cpburnz/python-path-specification
   license: MPL-2.0
   license_file: LICENSE
+  license_family: Other
   summary: 'Utility library for gitignore style pattern matching of file paths.'
 
   description: |
@@ -44,6 +47,7 @@ about:
     from Rsync's wildmatch. Git uses wildmatch for its gitignore files.
   doc_url: https://python-path-specification.readthedocs.io
   doc_source_url: https://github.com/cpburnz/python-path-specification/blob/master/doc/source/index.rst
+  dev_url: https://github.com/cpburnz/python-path-specification
 
 extra:
   recipe-maintainers:
