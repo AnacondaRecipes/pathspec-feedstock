@@ -33,7 +33,7 @@ test:
     - cd tests && pytest --pyargs pathspec  # [unix]
     # skip symlink tests on windows
     # https://github.com/cpburnz/python-path-specification/commit/d268375a4c6aa
-    - cd tests && pytest --pyargs pathspec  # [win]
+    - cd tests && pytest  # [win]
 
 
 about:
