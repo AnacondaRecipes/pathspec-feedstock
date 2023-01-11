@@ -1,6 +1,6 @@
 {% set name = "pathspec" %}
 {% set version = "0.10.3" %}
-{% set checksum = "56200de4077d9d0791465aa9095a01d421861e405b5096955051deefd697d6f" %}
+{% set checksum = "56200de4077d9d0791465aa9095a01d421861e405b5096955051deefd697d6f6" %}
 {% set build = "0" %}
 
 package:
