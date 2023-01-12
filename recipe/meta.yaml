@@ -30,11 +30,10 @@ test:
   imports:
     - pathspec
   commands:
-    - pytest --pyargs pathspec  # [unix]
+    - cd tests && pytest --pyargs pathspec  # [unix]
     # skip symlink tests on windows
     # https://github.com/cpburnz/python-path-specification/commit/d268375a4c6aa
-    - pytest --pyargs pathspec # [win]
-
+    - cd tests && pytest --pyargs pathspec # [win]
 
 about:
   home: https://github.com/cpburnz/python-path-specification
