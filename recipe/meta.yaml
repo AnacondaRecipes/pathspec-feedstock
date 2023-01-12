@@ -33,7 +33,7 @@ test:
     - cd tests && pytest --pyargs pathspec  # [unix]
     # skip symlink tests on windows
     # https://github.com/cpburnz/python-path-specification/commit/d268375a4c6aa
-    - cd tests && py.test -k "not test_2_1_check_realpath and not test_2_4_recursive_links and not test_2_5_recursive_circular_links"  # [win]
+    - cd src && cd _pytest && pytest  # [win]
 
 
 about:
