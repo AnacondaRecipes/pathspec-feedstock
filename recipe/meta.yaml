@@ -33,7 +33,7 @@ test:
   imports:
     - pathspec
   commands:
-    #- pip check
+    - pip check
     - cd tests && pytest --verbose  # [unix]
     # skip symlink tests on windows
     # https://github.com/cpburnz/python-path-specification/commit/d268375a4c6aa
