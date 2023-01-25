@@ -25,6 +25,8 @@ requirements:
     - python
 
 test:
+  source_files:
+    - tests/*.py
   requires:
     - pytest
   imports:
@@ -35,7 +37,7 @@ test:
     # https://github.com/cpburnz/python-path-specification/commit/d268375a4c6aa
     ## tests seem to have issues running on win-64 in our CI system
     ## as a workaround, try uploading to a staging channel and run the test suite from a dev instance before finalizing the build
-    # - cd tests && pytest --pyargs pathspec -k "not test_2_1_check_realpath and not test_2_4_recursive_links and not test_2_5_recursive_circular_links"  # [win]
+    - cd  %SRC_DIR%\tests && pytest --verbose  # [win]
 
 about:
   home: https://github.com/cpburnz/python-path-specification
