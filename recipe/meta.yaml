@@ -1,5 +1,7 @@
 {% set name = "pathspec" %}
-{% set version = "0.9.0" %}
+{% set version = "0.10.3" %}
+{% set checksum = "56200de4077d9d0791465aa9095a01d421861e405b5096955051deefd697d6f6" %}
+{% set build = "0" %}
 
 package:
   name: {{ name }}
@@ -7,32 +9,33 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: e564499435a2673d586f6b2130bb5b95f04a3ba06f81b8f895b651a3c76aabb1
+  sha256: {{ checksum }}
 
 build:
-  number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  number: {{ build }}
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  skip: True  # [py<37]
 
 requirements:
   host:
     - python
     - pip
-    - setuptools >=39.2.0
+    - setuptools >=40.8.0
     - wheel
   run:
     - python
 
 test:
+  source_files:
+    - tests
   requires:
     - pytest
+    - pip
   imports:
     - pathspec
   commands:
-    - pytest --pyargs pathspec  # [unix]
-    # skip symlink tests on windows
-    # https://github.com/cpburnz/python-path-specification/commit/d268375a4c6aa
-    - pytest --pyargs pathspec -k "not test_2_1_check_realpath and not test_2_4_recursive_links and not test_2_5_recursive_circular_links"  # [win]
-
+    - pip check
+    - pytest --verbose
 
 about:
   home: https://github.com/cpburnz/python-path-specification
