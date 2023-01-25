@@ -35,12 +35,7 @@ test:
     - pathspec
   commands:
     - pip check
-    - cd tests && pytest --verbose  # [unix]
-    # skip symlink tests on windows
-    # https://github.com/cpburnz/python-path-specification/commit/d268375a4c6aa
-    ## tests seem to have issues running on win-64 in our CI system
-    ## as a workaround, try uploading to a staging channel and run the test suite from a dev instance before finalizing the build
-    - cd tests && pytest --verbose  # [win]
+    - pytest --verbose
 
 about:
   home: https://github.com/cpburnz/python-path-specification
