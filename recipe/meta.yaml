@@ -33,7 +33,7 @@ test:
     - pathspec
   commands:
     - python -m pip check
-    - cd tests && pytest --pyargs pathspec  # [unix]
+    - cd tests && pytest --verbose  # [unix]
     # skip symlink tests on windows
     # https://github.com/cpburnz/python-path-specification/commit/d268375a4c6aa
     ## tests seem to have issues running on win-64 in our CI system
