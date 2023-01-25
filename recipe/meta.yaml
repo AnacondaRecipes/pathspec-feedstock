@@ -30,6 +30,7 @@ test:
     - tests
   requires:
     - pytest
+    - pip
   imports:
     - pathspec
   commands:
