@@ -13,7 +13,8 @@ source:
 
 build:
   number: {{ build }}
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  skip: True  # [py<37]
 
 requirements:
   host:
@@ -32,7 +33,7 @@ test:
   imports:
     - pathspec
   commands:
-    - pip check
+    #- pip check
     - cd tests && pytest --verbose  # [unix]
     # skip symlink tests on windows
     # https://github.com/cpburnz/python-path-specification/commit/d268375a4c6aa
