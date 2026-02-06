@@ -1,5 +1,5 @@
 {% set name = "pathspec" %}
-{% set version = "0.12.1" %}
+{% set version = "1.0.4" %}
 
 package:
   name: {{ name }}
@@ -7,29 +7,31 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: a482d51503a1ab33b1c67a6c3813a26953dbdc71c31dacaef9a838c4e29f5712
+  sha256: 0210e2ae8a21a9137c0d470578cb0e595af87edaa6ebf12ff176f14a02e0e645
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  skip: true  # [py<38]
+  skip: true  # [py<39]
 
 requirements:
   host:
-    - python
     - pip
-    - flit-core >=3.2,<4
-    - setuptools >=40.8.0
-    - wheel
+    - python
+    - flit-core >=3.2,<5
   run:
     - python
+  run_constrained:
+    - hyperscan >=0.7
+    - typing-extensions >=4
+    - google-re2 >=1.1
 
 test:
   source_files:
     - tests
   requires:
-    - pytest
     - pip
+    - pytest >=9
   imports:
     - pathspec
   commands:
