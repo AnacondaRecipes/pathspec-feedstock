@@ -1,5 +1,5 @@
 {% set name = "pathspec" %}
-{% set version = "1.0.4" %}
+{% set version = "1.1.1" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 0210e2ae8a21a9137c0d470578cb0e595af87edaa6ebf12ff176f14a02e0e645
+  sha256: 17db5ecd524104a120e173814c90367a96a98d07c45b2e10c2f3919fff91bf5a
 
 build:
   number: 0
@@ -22,8 +22,11 @@ requirements:
   run:
     - python
   run_constrained:
+    # hyperscan
     - hyperscan >=0.7
+    # optional
     - typing-extensions >=4
+    # re2
     - google-re2 >=1.1
 
 test:
@@ -31,12 +34,12 @@ test:
     - tests
   requires:
     - pip
-    - pytest >=9
+    - pytest >=8
   imports:
     - pathspec
   commands:
     - pip check
-    - pytest -v tests
+    - pytest -vv tests
 
 about:
   home: https://github.com/cpburnz/python-path-specification
